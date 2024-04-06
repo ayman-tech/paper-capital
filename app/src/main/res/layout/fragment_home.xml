@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Realized Gain"
+        android:fontFamily="@font/ltrenovate_semibold"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:text="170.00%"
+            android:gravity="center_vertical"
+            android:textSize="32dp"
+            android:fontFamily="@font/ltrenovate_semibold"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:text="Invested : 20,000"
+                android:textSize="18dp"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/ltrenovate_regular"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:text="Exit : 30,000"
+                android:textSize="18dp"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/ltrenovate_regular"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingTop="10dp"
+        android:text="Unrealized Gain"
+        android:background="#737373"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ltrenovate_semibold"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:background="#737373">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
+            android:text="170.00%"
+            android:textSize="32dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/ltrenovate_semibold"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:text="Invested : 20,000"
+                android:textSize="18dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:fontFamily="@font/ltrenovate_regular"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:text="Exit : 30,000"
+                android:textSize="18dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"
+                android:fontFamily="@font/ltrenovate_regular"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Available Funds :"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:fontFamily="@font/ltrenovate_regular"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/homeFundsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="10,00,000 Rs"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:fontFamily="@font/ltrenovate_semibold"
+        android:layout_marginTop="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:orientation="vertical"
+        android:gravity="bottom">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Settings"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/ltrenovate_semibold"
+            android:gravity="center"
+            android:background="#0066ff"/>
+    </LinearLayout>
+
+
+</android.widget.LinearLayout>

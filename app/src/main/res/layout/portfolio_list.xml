@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:orientation="horizontal"
+    android:paddingVertical="15dp">
+
+    <android.widget.LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/buyPricePortfolioListTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 x 1800.00"
+            android:textSize="16dp"
+            />
+        <TextView
+            android:id="@+id/codePortfolioListTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:text="RELIANCE"
+            android:textSize="24dp"
+            />
+        <TextView
+            android:id="@+id/buyAmountPortfolioListTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invested : 190000.00"
+            android:textSize="16dp"
+            />
+    </android.widget.LinearLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        />
+    <android.widget.LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="end"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/ltpPortfolioListTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LTP : 1900"
+            android:textSize="16dp"
+            />
+        <TextView
+            android:id="@+id/myChangeNoPortfolioListTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:text="2000 | +2.2%"
+            android:textSize="24dp"
+            />
+        <android.widget.LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/myChangePercentPortfolioListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0.5%"
+                android:textSize="16dp"
+                />
+            <TextView
+                android:id="@+id/changePortfolioListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+0.5%"
+                android:textSize="16dp"
+                />
+        </android.widget.LinearLayout>
+    </android.widget.LinearLayout>
+
+</android.widget.LinearLayout>
