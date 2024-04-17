@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.StrictMode;
 import android.util.Log;
 
+import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.lifecycle.ViewModel;
 
 import com.example.papertrading.PortfolioListData;
@@ -24,8 +25,10 @@ public class DashboardViewModel extends ViewModel {
     private Context context;
     private ArrayList<String> orderCode, orderPrice, orderQuant, orderDate;
     private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
     private final String TAG = "Dashboard ViewModel";
     private String price, changeNo, changePercent;
+    private Double invested;
     public DashboardViewModel() {
         portfolioListData = null;
     }
@@ -42,6 +45,9 @@ public class DashboardViewModel extends ViewModel {
     }
     public void setContext(Context context) {
         this.context = context;
+        sharedPref = context.getSharedPreferences("paper",Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+        invested=0.00;
     }
     public void buildData(){
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -57,6 +63,8 @@ public class DashboardViewModel extends ViewModel {
         for(int i=0; i<orderCode.size(); i++){
             getCurrentData(i);
         }
+        editor.putFloat("unrealCurrent", invested.floatValue());
+        editor.apply();
     }
     private void getCurrentData(int index){
         String url = "https://finance.yahoo.com/quote/" + orderCode.get(index) + ".NS";
@@ -73,9 +81,16 @@ public class DashboardViewModel extends ViewModel {
         }
         else Log.d(TAG, "Jsoup connection failed");
 
-        price = document.selectXpath("//*[@id=\"quote-header-info\"]/div[3]/div[1]/div/fin-streamer[1]").first().text();
-        changeNo = document.selectXpath("//*[@id=\"quote-header-info\"]/div[3]/div[1]/div/fin-streamer[2]").first().text();
-        changePercent = document.selectXpath("//*[@id=\"quote-header-info\"]/div[3]/div[1]/div/fin-streamer[3]").first().text();
+        price = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/section[1]/div[2]/div[1]/section/div/section/div[1]/fin-streamer[1]"
+        ).first().text();
+        changeNo = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/section[1]/div[2]/div[1]/section/div/section/div[1]/fin-streamer[2]"
+        ).first().text();
+        changePercent = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/section[1]/div[2]/div[1]/section/div/section/div[1]/fin-streamer[3]"
+        ).first().text();
+        changePercent = changePercent.substring(1,changePercent.length()-1);
 //        prevClose = document.selectXpath("//*[@id=\"quote-summary\"]/div[1]/table/tbody/tr[1]/td[2]").first().text();
 
         portfolioListData.add(new PortfolioListData(
@@ -85,10 +100,11 @@ public class DashboardViewModel extends ViewModel {
                 changePercent,
                 orderPrice.get(index),
                 orderQuant.get(index)));
+        Double priceDouble = Double.parseDouble(price.replace(",",""));
+        Integer quantInt = Integer.parseInt(orderQuant.get(index));
+        invested += priceDouble*quantInt;
     }
     public void clearData(){
-        sharedPref = context.getSharedPreferences("paper",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
         orderCode = new ArrayList<>();
         orderPrice = new ArrayList<>();
         orderQuant = new ArrayList<>();

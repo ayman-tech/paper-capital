@@ -20,49 +20,40 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            android:id="@+id/codeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="RELIANCE"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="2000"
+            android:textSize="30sp"
+            android:textAlignment="textStart"/>
         <android.widget.LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/codeTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:text="RELIANCE"
-                android:textSize="30sp"/>
-            <TextView
-                android:id="@+id/priceTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:text="2000"
-                android:textSize="30sp"
-                android:textAlignment="textEnd"/>
-
-        </android.widget.LinearLayout>
-
-        <android.widget.LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/changePercentTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.0"
-                android:text="+0.6%"
-                android:textSize="22sp"/>
             <TextView
                 android:id="@+id/changeNoTextView"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.0"
                 android:text="+200"
-                android:textSize="22sp"
-                android:textAlignment="textEnd"/>
+                android:textSize="22sp"/>
+            <TextView
+                android:id="@+id/changePercentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   (+0.6%)"
+                android:textSize="22sp"/>
+
         </android.widget.LinearLayout>
         <android.widget.LinearLayout
             android:layout_width="match_parent"

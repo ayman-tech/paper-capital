@@ -181,6 +181,11 @@ public class CartBuy extends AppCompatActivity implements GestureDetector.OnGest
             Log.d(TAG, "New Date " + strDate);
             Log.d(TAG, "OrderCode new Entry");
         }
+        Double unrealInvest = (double) sharedPref.getFloat("unrealInvest", 0.00f);
+        unrealInvest += myPrice*myQuant;
+        editor.putFloat("unrealInvest", unrealInvest.floatValue());
+        Log.d(TAG, "home data updated");
+
         editor.putStringSet("orderPrice", new HashSet<>(orderPrice));
         editor.putStringSet("orderQuant", new HashSet<>(orderQuant));
         editor.putStringSet("orderDate", new HashSet<>(orderDate));

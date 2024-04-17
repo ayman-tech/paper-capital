@@ -60,7 +60,7 @@ public class CompanyInfo extends AppCompatActivity {
             codeTV.setText(code);
             priceTV.setText(price);
             changeNoTV.setText(changeNo);
-            changePercentTV.setText(changePercent);
+            changePercentTV.setText("   " + changePercent + "");
 
             dayLowTV.setText(dayLow);
             dayHighTV.setText(dayHigh);
@@ -128,14 +128,30 @@ public class CompanyInfo extends AppCompatActivity {
         }
         else Log.d(TAG, "Jsoup connection failed");
 
-        price = document.selectXpath("//*[@id=\"quote-header-info\"]/div[3]/div[1]/div/fin-streamer[1]").first().text();
-        changeNo = document.selectXpath("//*[@id=\"quote-header-info\"]/div[3]/div[1]/div/fin-streamer[2]").first().text();
-        changePercent = document.selectXpath("//*[@id=\"quote-header-info\"]/div[3]/div[1]/div/fin-streamer[3]").first().text();
-        dayRange = document.selectXpath("//*[@id=\"quote-summary\"]/div[1]/table/tbody/tr[5]/td[2]").first().text();
-        yearRange = document.selectXpath("//*[@id=\"quote-summary\"]/div[1]/table/tbody/tr[6]/td[2]").first().text();
-        marCap = document.selectXpath("//*[@id=\"quote-summary\"]/div[2]/table/tbody/tr[1]/td[2]").first().text();
-        peRatio = document.selectXpath("//*[@id=\"quote-summary\"]/div[2]/table/tbody/tr[3]/td[2]").first().text();
-        prevClose = document.selectXpath("//*[@id=\"quote-summary\"]/div[1]/table/tbody/tr[1]/td[2]").first().text();
+        price = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/section[1]/div[2]/div[1]/section/div/section/div[1]/fin-streamer[1]"
+        ).first().text();
+        changeNo = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/section[1]/div[2]/div[1]/section/div/section/div[1]/fin-streamer[2]"
+        ).first().text();
+        changePercent = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/section[1]/div[2]/div[1]/section/div/section/div[1]/fin-streamer[3]"
+        ).first().text();
+        dayRange = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/div[2]/ul/li[5]/span[2]/fin-streamer"
+        ).first().text();
+        yearRange = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/div[2]/ul/li[6]/span[2]/fin-streamer"
+        ).first().text();
+        marCap = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/div[2]/ul/li[9]/span[2]/fin-streamer"
+        ).first().text();
+        peRatio = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/div[2]/ul/li[11]/span[2]/fin-streamer"
+        ).first().text();
+        prevClose = document.selectXpath(
+                "//*[@id=\"nimbus-app\"]/section/section/section/article/div[2]/ul/li[1]/span[2]/fin-streamer"
+        ).first().text();
         dayLow = dayRange.split(" - ")[0];
         dayHigh = dayRange.split(" - ")[1];
         yearLow = yearRange.split(" - ")[0];

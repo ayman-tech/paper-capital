@@ -55,7 +55,7 @@ public class PortfolioListAdapter extends ArrayAdapter<PortfolioListData> {
         myPriceTV.setText(portfolioListData.getBuyPrice() + " x " + portfolioListData.getBuyQuantity());
         myAmountTV.setText(String.format("Invested: %.2f", amt));
         myChangeNoTV.setText(String.format("%.2f", my_change_no));
-        myChangePercentTV.setText(String.format("%.2f", my_change_percent) + "%  ");
+        myChangePercentTV.setText(String.format("(%.2f", my_change_percent) + "%)  ");
 
         return convertView;
     }

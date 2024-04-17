@@ -164,11 +164,24 @@ public class CartSell extends AppCompatActivity implements GestureDetector.OnGes
             editor.putStringSet("orderPrice", new HashSet<>(orderPrice));
             Log.d(TAG, "Data removed from portfolio");
         }
+
+        Double unrealInvest = (double) sharedPref.getFloat("unrealInvest", 0.00f);
+        Double realInvest = (double) sharedPref.getFloat("realInvest", 0.00f);
+        Double realExit = (double) sharedPref.getFloat("realExit", 0.00f);
+        unrealInvest -= myPrice*myQuant;
+        realInvest += buyPrice*myQuant;
+        realExit += myPrice*myQuant;
+        editor.putFloat("unrealInvest", unrealInvest.floatValue());
+        editor.putFloat("realInvest", realInvest.floatValue());
+        editor.putFloat("realExit", realExit.floatValue());
+        Log.d(TAG, "home data updated");
+
         editor.putStringSet("orderQuant", new HashSet<>(orderQuant));
         Log.d(TAG, "Order placed; New order size : " + orderCode.size()+orderPrice.size()+orderQuant.size()+orderDate.size());
         funds += myPrice*myQuant;
         editor.putFloat("funds", funds.floatValue());
         editor.apply();
+
         Intent intent = new Intent(CartSell.this, OrderComplete.class);
         intent.putExtra("gain", String.format("%.2f",gain));
         intent.putExtra("gainPercent", String.format("%.2f",gainPercent));
